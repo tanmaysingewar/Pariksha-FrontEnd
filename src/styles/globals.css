@@ -1,107 +1,72 @@
-:root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
-
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
-}
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  outline: none;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
 }
 
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1013%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(162%2c 255%2c 204%2c 0.27)'%3e%3c/rect%3e%3cpath d='M0%2c645.897C118.633%2c639.209%2c188.928%2c513.665%2c290.689%2c452.321C396.537%2c388.513%2c551.237%2c387.338%2c609.621%2c278.404C667.94%2c169.591%2c626.978%2c30.113%2c577.626%2c-83.05C534.611%2c-181.682%2c424.276%2c-225.26%2c354.312%2c-307.013C283.731%2c-389.487%2c258.778%2c-508.488%2c165.714%2c-564.371C61.505%2c-626.947%2c-72.171%2c-675.528%2c-185.289%2c-631.035C-298.239%2c-586.609%2c-332.275%2c-446.492%2c-396.236%2c-343.34C-449.765%2c-257.012%2c-507.081%2c-175.213%2c-529.375%2c-76.113C-553.053%2c29.142%2c-566.495%2c140.323%2c-527.687%2c240.987C-487.752%2c344.575%2c-400.62%2c418.742%2c-312.543%2c486.326C-217.823%2c559.007%2c-119.203%2c652.617%2c0%2c645.897' fill='rgba(83%2c 255%2c 161%2c 0.27)'%3e%3c/path%3e%3cpath d='M1440 1034.2559999999999C1534.716 1021.677 1633.924 1038.0720000000001 1717.643 992.0219999999999 1804.277 944.369 1859.94 859.7570000000001 1911.0819999999999 775.136 1967.866 681.178 2055.395 581.978 2030.007 475.17 2004.45 367.654 1854.6019999999999 346.619 1788.221 258.265 1713.98 159.449 1736.616-15.36099999999999 1623.702-65.63 1514.134-114.40999999999997 1393.725-17.587999999999965 1285.714 34.54899999999998 1192.777 79.40899999999999 1109.808 137.339 1042.017 215.14600000000002 974.077 293.124 911.883 379.58799999999997 896.044 481.791 880.118 584.554 918.707 684.113 954.192 781.861 992.521 887.446 1010.861 1020.867 1110.538 1072.653 1210.679 1124.6799999999998 1328.132 1049.113 1440 1034.2559999999999' fill='rgba(241%2c 255%2c 247%2c 0.27)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1013'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width:960px) { 
+  body {
+    overflow: scroll;
+  }
 }
 
 a {
   color: inherit;
   text-decoration: none;
 }
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+label {
+  font-weight: bold;
 }
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+td,th {
+  text-align: center;
+}
+
+.mb-3 {
+  text-align: left;
+}
+

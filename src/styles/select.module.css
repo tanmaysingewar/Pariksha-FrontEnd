@@ -1,0 +1,81 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .select {
+    appearance: none;
+  background-color: #FFFFFF;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #444444;
+  outline: none;
+  }
+
+  .maincontainer {
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  @media (max-width: 768px) {
+    .maincontainer {
+      background-image: url('/path/to/mobile-background-image.jpg');
+    }
+  }
+
+  .search_categories{
+    font-size: 13px;
+    padding: 10px ;
+    padding-left: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    width: 10%;
+  }
+  
+  .search_categories .select{
+    width: 120%;
+    background-position:80% center;
+    
+  }
+  
+  .search_categories .select select{
+    background: transparent;
+    line-height: 1;
+    border: 0;
+    padding: 0;
+    border-radius: 0;
+    width: 80%;
+    position: relative;
+    z-index: 10;
+    font-size: 1em;
+    margin-right: 20px;
+  }
+
+.LoginButton {
+  max-width: 250px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #000000;
+  border-radius: 5px;
+ 
+}
+
+.LoginButtonContainer {
+  margin: 0 10px;
+}
+
+.LoginButtonText{
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  align-items: center;
+}
