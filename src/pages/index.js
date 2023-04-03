@@ -123,7 +123,7 @@ export default function Home() {
               <Image
                 className=" mx-auto lg:mr-0 slide-in-bottom"
                 width={600}
-                style={{borderRadius : "20px", rotate : "-5deg"}}
+                style={{borderRadius : "20px"}}
                 src={collagePic}
                 alt="collage"
               />
