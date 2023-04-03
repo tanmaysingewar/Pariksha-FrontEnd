@@ -85,10 +85,10 @@ export default function Home() {
           <div className="container pt-24 md:pt-48 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center" style={{marginTop : "-100px"}}>
             {/*Left Col*/}
             <div className="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden" style={{alignItems : "center"}}>
-              <h1 className="my-4 text-3xl md:text-5xl font-bold leading-tight text-center md:text-left slide-in-bottom-h1" style={{color : "#05445E", fontSize : "100px"}}>
+              <h1 className="my-4 text-3xl md:text-5xl font-bold leading-tight text-center md:text-left slide-in-bottom-h1" >
                 Welcome to Pariksha
               </h1>
-              <p className="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle" style={{textAlign :"right",fontSize : "32px"}} >
+              <p className="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle" >
                 <b>Team Members :</b> <br/>
                 Tanishka Badnaware (2007006)  <br/>
                 Vaishnavi Dhore (2007019) <br/>

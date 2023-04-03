@@ -16,25 +16,25 @@ const AdminLogin = () => {
     const [error, setError] = useState('');
     
     const handleSubmit = async () => {
-        // const res = await fetch('http://localhost:8080/api/faculty/login', {
-        // body: JSON.stringify({
-        //     id : email,
-        //     password,
-        // }),
-        // headers: {
-        //     'Content-Type': 'application/json',
-        // },
-        // method: 'POST',
-        // });
-        // const result = await res.json();
-        // console.log(result.success)
-        // if (result.success) {
-        //     console.log(result.message)
-        //     authincate(result.faculty)
-        //     Router.push('/facultyPage')
-        // } else{
-        //     setError("Invalid Credentials")
-        // }
+        const res = await fetch('http://localhost:8080/api/faculty/login', {
+        body: JSON.stringify({
+            id : email,
+            password,
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        });
+        const result = await res.json();
+        console.log(result.success)
+        if (result.success) {
+            console.log(result.message)
+            authincate(result.faculty)
+            Router.push('/facultyPage')
+        } else{
+            setError("Invalid Credentials")
+        }
 
         return Router.push('/facultyPage')
     };

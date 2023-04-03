@@ -6,17 +6,17 @@ import Router from 'next/router'
 
 const Faculty = () => {
 
-  // const [data, setData] = useState([])
-  // useEffect(() => {
-  //   // fetch all faculty data
-  //   const fetchFaculty = async () => {
-  //     const response = await fetch('http://localhost:8080/api/admin/selected/faculty');
-  //     const data = await response.json();
-  //     console.log(data);
-  //     setData(data.data)
-  //   }
-  //   fetchFaculty()
-  // }, [])
+  const [data, setData] = useState([])
+  useEffect(() => {
+    // fetch all faculty data
+    const fetchFaculty = async () => {
+      const response = await fetch('http://localhost:8080/api/admin/selected/faculty');
+      const data = await response.json();
+      console.log(data);
+      setData(data.data)
+    }
+    fetchFaculty()
+  }, [])
   
     return (
         <>
@@ -39,7 +39,7 @@ const Faculty = () => {
       </thead>
       <tbody>
         {/* Loop the data  */}
-        {/* {
+        {
           data.map((item) => {
             return (
               <tr>
@@ -57,9 +57,9 @@ const Faculty = () => {
             )
           }
           )
-        } */}
+        }
        
-        <tr>
+        {/* <tr>
           <td>IT203222</td>
           <td>LoremIpsum</td>
           <td>loremipsum@gmail.com</td>
@@ -70,55 +70,7 @@ const Faculty = () => {
           <td>
             <Button variant="danger">Delete</Button>
           </td>
-        </tr>
-        <tr>
-          <td>IT203222</td>
-          <td>LoremIpsum</td>
-          <td>loremipsum@gmail.com</td>
-          <td>9734556723</td>
-          <td style={{}}>
-            <Button variant="warning" onClick={() => Router.push('/editFaculty')}>Edit</Button>
-          </td>
-          <td>
-            <Button variant="danger">Delete</Button>
-          </td>
-        </tr>
-        <tr>
-          <td>IT203222</td>
-          <td>LoremIpsum</td>
-          <td>loremipsum@gmail.com</td>
-          <td>9734556723</td>
-          <td style={{}}>
-            <Button variant="warning" onClick={() => Router.push('/editFaculty')}>Edit</Button>
-          </td>
-          <td>
-            <Button variant="danger">Delete</Button>
-          </td>
-        </tr>
-        <tr>
-          <td>IT203222</td>
-          <td>LoremIpsum</td>
-          <td>loremipsum@gmail.com</td>
-          <td>9734556723</td>
-          <td style={{}}>
-            <Button variant="warning" onClick={() => Router.push('/editFaculty')}>Edit</Button>
-          </td>
-          <td>
-            <Button variant="danger">Delete</Button>
-          </td>
-        </tr>
-        <tr>
-          <td>IT203222</td>
-          <td>LoremIpsum</td>
-          <td>loremipsum@gmail.com</td>
-          <td>9734556723</td>
-          <td style={{}}>
-            <Button variant="warning" onClick={() => Router.push('/editFaculty')}>Edit</Button>
-          </td>
-          <td>
-            <Button variant="danger">Delete</Button>
-          </td>
-        </tr>
+        </tr> */}
         
       </tbody>
     </Table>

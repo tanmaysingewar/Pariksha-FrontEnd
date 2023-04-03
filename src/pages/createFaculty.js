@@ -18,28 +18,26 @@ const CreateFaculty = () => {
     const [error, setError] = useState('');
     
     const handleSubmit = async () => {
-        // const res = await fetch('http://localhost:8080/api/faculty/create/account', {
-        // body: JSON.stringify({
-        //     email,
-        //     name,
-        //     contact_no,
-        //     password,
-        // }),
-        // headers: {
-        //     'Content-Type': 'application/json',
-        // },
-        // method: 'POST',
-        // });
-        // const result = await res.json();
-        // console.log(result.success)
-        // if (result.success) {
-        //     console.log(result.message)
-        //     Router.push('/facultyLogin')
-        // } else{
-        //     setError("Invalid Credentials")
-        // }
-
-        return Router.push('/facultyLogin')
+        const res = await fetch('http://localhost:8080/api/faculty/create/account', {
+        body: JSON.stringify({
+            email,
+            name,
+            contact_no,
+            password,
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        });
+        const result = await res.json();
+        console.log(result.success)
+        if (result.success) {
+            console.log(result.message)
+            Router.push('/facultyLogin')
+        } else{
+            setError("Invalid Credentials")
+        }
     };
     
     return (
