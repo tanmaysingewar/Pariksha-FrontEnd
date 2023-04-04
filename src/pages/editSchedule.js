@@ -14,26 +14,7 @@ const AdminLogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     const res = await fetch('/api/login', {
-    //     body: JSON.stringify({
-    //         email,
-    //         password,
-    //     }),
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     method: 'POST',
-    //     });
-    //     const result = await res.json();
-    //     if (result.error) {
-    //     setError(result.message);
-    //     } else {
-    //     Router.push('/admin');
-    //     }
-    // };
+
     
     return (
     <div className={styles.Conatiner} style={{overflowX : "scroll", height : "100vh"}} >
@@ -65,7 +46,7 @@ const AdminLogin = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Date</Form.Label>
-            <Form.Control type="date" placeholder="Name" />
+            <Form.Control type="date"  placeholder="Name" value={"2023-03-28"} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Time</Form.Label>

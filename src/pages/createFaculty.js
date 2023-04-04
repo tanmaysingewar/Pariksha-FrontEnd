@@ -9,6 +9,7 @@ import Form from 'react-bootstrap/Form';
 import Router from 'next/router'
 import background from "@/assets/bg.svg";
 import Card from 'react-bootstrap/Card';
+import { API } from '../../backend';
 
 const CreateFaculty = () => {
     const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ const CreateFaculty = () => {
     const [error, setError] = useState('');
     
     const handleSubmit = async () => {
-        const res = await fetch('http://localhost:8080/api/faculty/create/account', {
+        const res = await fetch(`${API}/api/faculty/create/account`, {
         body: JSON.stringify({
             email,
             name,
@@ -45,16 +46,17 @@ const CreateFaculty = () => {
         <Card style={{padding : "40px"}}>
         <Form>
         <p className="fs-3" style={{textAlign : "center"}}>Create New Account</p>
+        
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Name</Form.Label>
+            <Form.Control type="text" placeholder="Name" onChange={(e) => setname(e.target.value)}/>
+        </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="Enter email" autoComplete='off' onChange={(e) => setEmail(e.target.value)}/>
             <Form.Text className="text-muted">
             We'll never share your email with anyone else.
             </Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Name" onChange={(e) => setname(e.target.value)}/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Contact No.</Form.Label>

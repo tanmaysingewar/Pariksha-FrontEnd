@@ -3,14 +3,15 @@ import styles from '../styles/select.module.css';
 import Router from 'next/router'
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
-import background from "@/assets/bg.svg";
+
 const Select = () => {
-  const [select, setselect] = useState("Dropdown Button")
+  const [select, setselect] = useState("Login As")
   return (
     <div className={styles.container} >
+      {/* <Card> */}
       <Dropdown>
       <Dropdown.Toggle variant="secondary" id="dropdown-basic" >
-        {select =="adminLogin" ? "Admin" : select =="facultyLogin" ? "Faculty" : "Dropdown Button"}
+        {select =="adminLogin" ? "Admin" : select =="facultyLogin" ? "Faculty" : "Login As"}
       </Dropdown.Toggle>
 
       <Dropdown.Menu >
@@ -21,6 +22,7 @@ const Select = () => {
             <Button variant="dark" style={{marginLeft : "20px"}} onClick={() => Router.push(`/${select}`)} >
             Continue
         </Button>
+        {/* </Card> */}
   </div>
   );
 };

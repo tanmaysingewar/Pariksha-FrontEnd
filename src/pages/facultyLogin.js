@@ -9,6 +9,7 @@ import Form from 'react-bootstrap/Form';
 import Router from 'next/router'
 import Card from 'react-bootstrap/Card';
 import { authincate } from '../../helper/auth';
+import { API } from '../../backend';
 
 const AdminLogin = () => {
     const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ const AdminLogin = () => {
     const [error, setError] = useState('');
     
     const handleSubmit = async () => {
-        const res = await fetch('http://localhost:8080/api/faculty/login', {
+        const res = await fetch(`${API}/faculty/login`, {
         body: JSON.stringify({
             id : email,
             password,
@@ -35,8 +36,6 @@ const AdminLogin = () => {
         } else{
             setError("Invalid Credentials")
         }
-
-        return Router.push('/facultyPage')
     };
     
     return (

@@ -1,23 +1,96 @@
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
 import Button from 'react-bootstrap/Button';
-import facultyIamge from '@/assets/faculty.jpg';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import Badge from 'react-bootstrap/Badge';
-import background from "@/assets/bg.svg";
 import Table from 'react-bootstrap/Table';
 import Router from 'next/router'
 import Dropdown from 'react-bootstrap/Dropdown';
+import { useEffect,useState } from 'react';
+import { isAuthincated } from '../../helper/auth';
+import { API } from '../../backend';
+
 
 const ReplaceFaculty = () => {
+  const [schedule, setSchedule] = useState([]);
+  const [allFaculties, setallFaculties] = useState([])
+  const [setFacultyName, setsetFacultyName] = useState('Select Faculty')
+  const [setFacultyId, setsetFacultyId] = useState('')
+
+  useEffect(() => {
+    if (!isAuthincated()) {
+      console.log("hii")
+    }
+    const token = isAuthincated().token;
+    const user = isAuthincated().user;
+
+    const fetchRequest = async () => {
+      const res = await fetch(`${API}/replace/show/all`)
+      const result = await res.json();
+      console.log(result.data);
+      // Get the 
+      
+
+      setSchedule(result.data);
+    }
+    const getFaculty = async (item) => {
+  
+      const res = await fetch(`${API}/admin/show/faculty/all`)
+      const result = await res.json();
+      console.log(result.data);
+      setallFaculties(result.data);
+    }
+    getFaculty()
+    fetchRequest();
+    
+  }, [])
+
+  const replaceFaculty = async (item) => {
+    const token = isAuthincated().token;
+    const user = isAuthincated().user;
+    // Remove from the schedule with id = item._id from the schedule list
+    const newData = schedule.filter((data) => data._id !== item._id)
+   
+
+
+    const res = await fetch(`${API}/replace/accept?scheduleId=${item.scheduleId}&facultyId=${item.facultyId}`, {
+      method : "POST",
+      headers : {
+        "Content-Type" : "application/json",
+      },
+      body : JSON.stringify({
+        request_id : item._id,
+        facultyId : setFacultyId,
+        facultyName : setFacultyName
+      })
+    })
+    const result = await res.json();
+    console.log(result);
+    if (result.error) {
+      alert(result.error);
+      // Remove from the schedule list
+    }
+    else {
+      return  setSchedule(newData)
+    }
+  }
+
+ 
+
+
+
+  function formatDate (input) {
+    var datePart = input.match(/\d+/g),
+    year = datePart[0].substring(2), // get only two digits
+    month = datePart[1], day = datePart[2];
+  
+    return day+'/'+month+'/'+year;
+  }
+
     return (
         <>
         <div style={{overflowY : "scroll", height : "100vh",marginTop : "40px"}}>
         <h1 style={{textAlign : "center"}}>
-        Pariksha <Badge bg="secondary">Replace Faculty</Badge>
+        <Badge bg="secondary">Replace Faculty</Badge>
         </h1>
-        <p style={{textAlign : "center"}}> <b>This is list of all Rooms Available</b></p>
+        <p style={{textAlign : "center", color : "#fff", marginTop : "10px"}}> <b>This is list of replacements</b></p>
         <Table striped bordered hover style={{width : "80%", margin : "auto", marginTop : "20px", marginBottom : "60px"}}>
       <thead>
         <tr>
@@ -32,53 +105,53 @@ const ReplaceFaculty = () => {
         </tr>
       </thead>
       <tbody>
-        <tr >
-            {/* RowSpan is equal to the no. of teacher alloted */}
-          <td rowSpan={2} style={{verticalAlign : "middle"}}>202A</td>
-          <td rowSpan={2} style={{verticalAlign : "middle"}}>Subject Name</td>
-          <td rowSpan={2} style={{verticalAlign : "middle"}}>12/12/12</td>
-          <td rowSpan={2} style={{verticalAlign : "middle"}}>9:00</td>
-          {/* Teacher One */}
-          <td>
-           Lorem Ipsum
-          </td>
-          <td>
-           211
-          </td>
-          {/* COnditional render the replace button  */}
-          <td rowSpan={2} style={{verticalAlign : "middle"}}>
-          <Dropdown style={{marginBottom : "10px"}}>
+        {
+           schedule.length === 0 ? <tr><td colSpan="8" style={{textAlign : "center"}}>No Faculty Available</td></tr> :
+          schedule.map((item, index) => {
+            console.log(item)
+            return (
+              <tr key={index}>
+                <td style={{verticalAlign : "middle"}}>{item.courceCode}</td>
+                <td style={{verticalAlign : "middle"}}>{item.courceName}</td>
+                <td style={{verticalAlign : "middle"}}>{formatDate(item.date)}</td>
+                <td style={{verticalAlign : "middle"}}>{item.time}</td>
+                <td style={{verticalAlign : "middle"}}>{item.facultyName}</td>
+                <td style={{verticalAlign : "middle"}}>{item.room}</td>
+                <td style={{verticalAlign : "middle"}}>
+                  <Dropdown style={{marginBottom : "10px"}}>
             
-            <Dropdown.Toggle variant="secondary" id="dropdown-basic" style={{width : "200px"}} >
-            {/* Condtitional render which teacher want replacement */}
-            Teacher one
-            </Dropdown.Toggle>
+                    <Dropdown.Toggle variant="secondary" id="dropdown-basic" style={{width : "200px"}} >
+                    {/* Condtitional render which teacher want replacement */}
+                    {setFacultyName}
+                    </Dropdown.Toggle>
 
-            <Dropdown.Menu style={{height : "200px", overflow : "scroll", overflowX : "hidden"}}>
-                {/* Map the faculty names */}
-                <Dropdown.Item eventKey={"adminLogin"} onClick={() =>setselect("adminLogin")} style={{width : "200px"}}>Lorem Ipsum</Dropdown.Item>
-                <Dropdown.Item eventKey={"adminLogin"} onClick={() =>setselect("adminLogin")} style={{width : "200px"}}>Lorem Ipsum</Dropdown.Item>
-                <Dropdown.Item eventKey={"adminLogin"} onClick={() =>setselect("adminLogin")} style={{width : "200px"}}>Lorem Ipsum</Dropdown.Item>
-                <Dropdown.Item eventKey={"adminLogin"} onClick={() =>setselect("adminLogin")} style={{width : "200px"}}>Lorem Ipsum</Dropdown.Item>
-                <Dropdown.Item eventKey={"adminLogin"} onClick={() =>setselect("adminLogin")} style={{width : "200px"}}>Lorem Ipsum</Dropdown.Item>
-            </Dropdown.Menu>
-            </Dropdown>
-          </td>
-          <td rowSpan={2} style={{verticalAlign : "middle"}}>
-            <button style={{width : "100px"}}>Replace</button>
-          </td>
-        </tr>
-        {/* Teacher Two */}
-        <tr>
-          <td>
-           Lorem Ipsum
-          </td>
-          <td>
-           211
-          </td>
-        </tr>
-        {/* Teacher Three */}
-        {/* By Increseing RowSpan by no. of teachers can teacher added to table */}
+                    <Dropdown.Menu style={{height : "200px", overflow : "scroll", overflowX : "hidden"}}>
+                        {/* Map the faculty names */}
+                        {
+                          allFaculties.map((item, index) => {
+                            console.log(item)
+                            return (
+                              <Dropdown.Item key={index} onClick={() => {
+                                setsetFacultyName(item.name);
+                                setsetFacultyId(item._id);
+                              }}>
+                                {item.name}
+                              </Dropdown.Item>
+                            )
+                          }
+                          )
+                        }
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </td>
+                <td style={{verticalAlign : "middle"}}>
+                  <Button variant="success" onClick={() => replaceFaculty(item)}>Replace</Button>
+                </td>
+              </tr>
+            )
+          }
+          )
+        }
       </tbody>
     </Table>
         </div>

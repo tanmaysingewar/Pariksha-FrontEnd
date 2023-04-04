@@ -11,25 +11,6 @@ const EditSubject = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     const res = await fetch('/api/login', {
-    //     body: JSON.stringify({
-    //         email,
-    //         password,
-    //     }),
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     method: 'POST',
-    //     });
-    //     const result = await res.json();
-    //     if (result.error) {
-    //     setError(result.message);
-    //     } else {
-    //     Router.push('/admin');
-    //     }
-    // };
     
     return (
     <div className={styles.Conatiner} >

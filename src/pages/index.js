@@ -6,6 +6,7 @@ import collagePic from "@/assets/collage.jpg";
 import background from "@/assets/bg.svg";
 import Router from 'next/router'
 import backgroundImg from "@/assets/background";
+import Card from 'react-bootstrap/Card';
 // import logo from "@/assets/lo";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -40,55 +41,29 @@ export default function Home() {
           }}
         />
         <div
-          className="h-screen pb-14 bg-right bg-cover"
           // style={{ backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1011%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(162%2c 207%2c 255%2c 0.53)'%3e%3c/rect%3e%3cpath d='M0%2c645.897C118.633%2c639.209%2c188.928%2c513.665%2c290.689%2c452.321C396.537%2c388.513%2c551.237%2c387.338%2c609.621%2c278.404C667.94%2c169.591%2c626.978%2c30.113%2c577.626%2c-83.05C534.611%2c-181.682%2c424.276%2c-225.26%2c354.312%2c-307.013C283.731%2c-389.487%2c258.778%2c-508.488%2c165.714%2c-564.371C61.505%2c-626.947%2c-72.171%2c-675.528%2c-185.289%2c-631.035C-298.239%2c-586.609%2c-332.275%2c-446.492%2c-396.236%2c-343.34C-449.765%2c-257.012%2c-507.081%2c-175.213%2c-529.375%2c-76.113C-553.053%2c29.142%2c-566.495%2c140.323%2c-527.687%2c240.987C-487.752%2c344.575%2c-400.62%2c418.742%2c-312.543%2c486.326C-217.823%2c559.007%2c-119.203%2c652.617%2c0%2c645.897' fill='rgba(83%2c 166%2c 255%2c 0.53)'%3e%3c/path%3e%3cpath d='M1440 1034.2559999999999C1534.716 1021.677 1633.924 1038.0720000000001 1717.643 992.0219999999999 1804.277 944.369 1859.94 859.7570000000001 1911.0819999999999 775.136 1967.866 681.178 2055.395 581.978 2030.007 475.17 2004.45 367.654 1854.6019999999999 346.619 1788.221 258.265 1713.98 159.449 1736.616-15.36099999999999 1623.702-65.63 1514.134-114.40999999999997 1393.725-17.587999999999965 1285.714 34.54899999999998 1192.777 79.40899999999999 1109.808 137.339 1042.017 215.14600000000002 974.077 293.124 911.883 379.58799999999997 896.044 481.791 880.118 584.554 918.707 684.113 954.192 781.861 992.521 887.446 1010.861 1020.867 1110.538 1072.653 1210.679 1124.6799999999998 1328.132 1049.113 1440 1034.2559999999999' fill='rgba(241%2c 248%2c 255%2c 0.53)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1011'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e")` }}
+
+          style={{overflow : "scroll", height : "100vh"}} className={styles.srcollbar}
         >
-          {/*Nav*/}
-          <div className="w-full container mx-auto p-6">
-            <div className="w-full flex items-center justify-between">
-              <a
-                className="flex items-center text-indigo-300 no-underline hover:no-underline font-bold text-1xl lg:text-4xl"
-                style={{color : "#000"}}
-              >
-                <Image 
-                  src={require('@/assets/Icons/logo.png')}
-                  width={40}
-                  height={40}
-                  style={{marginRight : "10px"}}
-                />
-                 / PARIKSHA
-              </a>
-              <div className="flex w-1/2 justify-end content-center">
-                <a
-                  className="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4"
-                  data-tippy-content="@twitter_handle"
-                  href="https://twitter.com/intent/tweet?url=#"
-                >
-                </a>
-                <a
-                  className="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 "
-                  data-tippy-content="#facebook_id"
-                  href="https://www.facebook.com/sharer/sharer.php?u=#"
-                >
-                  <svg
-                    className="fill-current h-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 32 32"
-                  >
-                    <path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          {/*Main*/}
-          <div className="container pt-24 md:pt-48 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center" style={{marginTop : "-100px"}}>
-            {/*Left Col*/}
-            <div className="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden" style={{alignItems : "center"}}>
-              <h1 className="my-4 text-3xl md:text-5xl font-bold leading-tight text-center md:text-left slide-in-bottom-h1" >
+         
+              {/* <p className="leading-normal text-base md:text-2xl mb-2 text-center md:text-left slide-in-bottom-h1" style={{textAlign :"right",fontSize : "18px", color : "#fff"}}>
+                <b>The Government Polytechnic, Nagpur is an autonomous educational institution of the government of Maharashtra, a state in Western India</b> 
+              </p> */}
+              <Image 
+                src={require('@/assets/WhatsApp Image 2023-04-03 at 8.16.02 PM.jpeg')}
+                width={'100%'}
+                height={'100%'}
+                style={{margin: "auto"}}
+                className="slide-in-bottom-h1"
+              />
+               <h1 className="my-4 text-3xl md:text-5xl font-bold leading-tight text-center md:text-left slide-in-bottom-h1 " style={{color : "#fff", paddingTop : "3vh"}} >
                 Welcome to Pariksha
               </h1>
-              <p className="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle" >
+            {/*Left Col*/}
+            
+            <Card className="slide-in-bottom-subtitle" style={{textAlign : "center",justifyContent : "center", padding : "40px", alignItems : "center", width : "600px", margin : "auto", marginTop : "60px"}}>
+              
+              <p className="leading-normal text-base md:text-2xl mb-2 text-center md:text-left slide-in-bottom-subtitle" style={{textAlign :"right",fontSize : "18px"}}>
                 <b>Team Members :</b> <br/>
                 Tanishka Badnaware (2007006)  <br/>
                 Vaishnavi Dhore (2007019) <br/>
@@ -101,35 +76,17 @@ export default function Home() {
               <b>Co-Guide : </b>
                 Priti Saktel
               </p>
-              <div className="leading-normal text-base  text-center md:text-left slide-in-bottom-subtitle" >
-              {/* <div className="flex w-full justify-center md:justify-start pb-24 lg:pb-0" style={{textAlign : "center"}}>
-                  <a
-                    className="bg-white text-gray-800 font-bold rounded-half my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-                    href="/login"
-                  >
-                    Login
-                  </a>
-                </div> */}
-                <div className={styles.LoginButtonContainer}>
-                <div className={styles.LoginButton} onClick={() => Router.push('/select')}>
-                    <p className={styles.LoginButtonText}>{`Join to PARIKSHA`}</p>
+              
+              </Card>
+              <div className=" slide-in-bottom-subtitle" style={{textAlign : "center", margin : "auto", marginTop : "50px", marginBottom : "50px"}}>
+                <div className={styles.LoginButtonContainer} style={{textAlign : "center", margin : "auto"}}>
+                  <div className={styles.LoginButton} style={{textAlign : "center",margin : "auto"}} onClick={() => Router.push('/select')}>
+                      <p className={styles.LoginButtonText}>{`Join to PARIKSHA`}</p>
+                  </div>
                 </div>
-            </div>
               </div>
-             
-            </div>
-            {/*Right Col*/}
-            <div className="w-full xl:w-3/5 py-12 overflow-y-hidden" style={{overflow : "hidden"}}>
-              <Image
-                className=" mx-auto lg:mr-0 slide-in-bottom"
-                width={600}
-                style={{borderRadius : "20px"}}
-                src={collagePic}
-                alt="collage"
-              />
-            </div>
           </div>
-        </div>
+          
       </>
     </>
   );

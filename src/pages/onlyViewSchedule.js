@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Button from 'react-bootstrap/Button';
@@ -8,15 +9,40 @@ import Badge from 'react-bootstrap/Badge';
 import background from "@/assets/bg.svg";
 import Table from 'react-bootstrap/Table';
 import Router from 'next/router'
+import { API } from '../../backend';
 
-const onlyViewSchedule = () => {
+const ViewAndEditSchedule = () => {
+  // http://localhost:8080/api/schedule/view/all
+
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+
+    const fetchSchedule = async () => {
+      const response = await fetch(`${API}/schedule/view/all`);
+      const data = await response.json();
+      console.log(data);
+      setData(data.data)
+    }
+    fetchSchedule()
+  }, [])
+
+  function formatDate (input) {
+    var datePart = input.match(/\d+/g),
+    year = datePart[0].substring(2), // get only two digits
+    month = datePart[1], day = datePart[2];
+  
+    return day+'/'+month+'/'+year;
+  }
+
+
     return (
         <>
         <div style={{overflowY : "scroll", height : "100vh",marginTop : "40px"}}>
-        <h1 style={{textAlign : "center",marginTop : "40px"}}>
-        Pariksha <Badge bg="secondary">View Schedule</Badge>
+        <h1 style={{textAlign : "center"}}>
+        <Badge bg="secondary">View Schedule</Badge>
         </h1>
-        <p style={{textAlign : "center"}}> <b>This is list of all Rooms Available</b></p>
+        <p style={{textAlign : "center", color : "#fff", marginTop : "10px"}}> <b>This is list of Schedule</b></p>
         <Table striped bordered hover style={{width : "80%", margin : "auto", marginTop : "20px", marginBottom : "60px"}}>
       <thead>
         <tr>
@@ -29,31 +55,39 @@ const onlyViewSchedule = () => {
         </tr>
       </thead>
       <tbody>
-        <tr >
-            {/* RowSpan is equal to the no. of teacher alloted */}
-          <td rowSpan={2} style={{verticalAlign : "middle"}}>202A</td>
-          <td rowSpan={2} style={{verticalAlign : "middle"}}>Subject Name</td>
-          <td rowSpan={2} style={{verticalAlign : "middle"}}>12/12/12</td>
-          <td rowSpan={2} style={{verticalAlign : "middle"}}>9:00</td>
-          {/* Teacher One */}
-          <td>
-           Lorem Ipsum
-          </td>
-          <td>
-           211
-          </td>
-        </tr>
-        {/* Teacher Two */}
-        <tr>
-          <td>
-           Lorem Ipsum
-          </td>
-          <td>
-           211
-          </td>
-        </tr>
-        {/* Teacher Three */}
-        {/* By Increseing RowSpan by no. of teachers can teacher added to table */}
+        {
+           data.length === 0 ? <tr><td colSpan="6" style={{textAlign : "center"}}>No Schedule Available</td></tr> :
+          data.map((item) => {
+            return (
+              <>
+              <tr>
+                <td rowSpan={item.faculties.length} style={{verticalAlign : "middle"}}>{item.courceCode}</td>
+                <td rowSpan={item.faculties.length} style={{verticalAlign : "middle"}}>{item.courceName}</td>
+                <td rowSpan={item.faculties.length} style={{verticalAlign : "middle"}}>{formatDate(item.date)}</td>
+                <td rowSpan={item.faculties.length} style={{verticalAlign : "middle"}}>{item.time}</td>
+                <td style={{verticalAlign : "middle"}}>{item.faculties[0].facultyName}</td>
+                <td style={{verticalAlign : "middle"}}>{item.rooms[0].givenRoomId}</td>
+              </tr>
+              {/* Map the remining faculty and room */}
+              {
+                item.faculties.map((faculty, index) => {
+                  if(index !== 0){
+                    return (
+                      <tr>
+                        <td style={{verticalAlign : "middle"}}>{faculty.facultyName}</td>
+                        <td style={{verticalAlign : "middle"}}>{item.rooms[index].givenRoomId}</td>
+                      </tr>
+                    )
+                  }
+                }
+                )
+              }
+              </>
+              
+            )
+          })
+        }
+
       </tbody>
     </Table>
         </div>
@@ -61,4 +95,4 @@ const onlyViewSchedule = () => {
     );
   };
   
-  export default onlyViewSchedule;
+  export default ViewAndEditSchedule;

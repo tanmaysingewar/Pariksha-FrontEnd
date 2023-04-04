@@ -22,7 +22,6 @@ const AdminLogin = () => {
         }else{
            return setError("Invalid Credentials")
         }
-        
     };
     
     return (
@@ -31,10 +30,10 @@ const AdminLogin = () => {
         <Form>
         <p className="fs-3" style={{textAlign : "center"}}>Admin Login</p>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Admin ID</Form.Label>
             <Form.Control type="email" placeholder="Enter email" autoComplete='off' onChange={(e) => setEmail(e.target.value)} />
             <Form.Text className="text-muted">
-            Id is admin and password is admin
+            Enter Unique Admin Id
             </Form.Text>
         </Form.Group>
 

@@ -15,31 +15,9 @@ const EditFaculty = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     const res = await fetch('/api/login', {
-    //     body: JSON.stringify({
-    //         email,
-    //         password,
-    //     }),
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     method: 'POST',
-    //     });
-    //     const result = await res.json();
-    //     if (result.error) {
-    //     setError(result.message);
-    //     } else {
-    //     Router.push('/admin');
-    //     }
-    // };
-    
     return (
     <div className={styles.Conatiner} >
         <Card style={{padding : "40px"}}>
-
-        
         <Form>
         <p className="fs-3" style={{textAlign : "center"}}>Edit Room</p>
         <Form.Group className="mb-3" controlId="formBasicPassword">

@@ -2,9 +2,9 @@
 
 
 .LoginButton {
-  border: 3px solid black;
+  border: 3px solid #fff;
   max-width: 250px;
-  box-shadow: 4px 5px 0#000;
+  box-shadow: 4px 5px 0#fff;
   padding: 10px;
   cursor: pointer;
 }
@@ -15,4 +15,14 @@
 
 .LoginButtonText{
   font-weight: 600;
+  color: #fff;
+}
+
+.srcollbar {
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.srcollbar::-webkit-scrollbar {
+  display: none;
 }
