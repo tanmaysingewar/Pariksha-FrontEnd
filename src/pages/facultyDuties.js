@@ -39,7 +39,6 @@ const FacultyDuty = () => {
 
 const replaceFaculty = async (item,room) => {
 
-
   const token = isAuthincated().token;
   const user = isAuthincated().user;
 

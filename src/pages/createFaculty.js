@@ -7,7 +7,6 @@ import styles from '../styles/adminLogin.module.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Router from 'next/router'
-import background from "@/assets/bg.svg";
 import Card from 'react-bootstrap/Card';
 import { API } from '../../backend';
 

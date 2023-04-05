@@ -196,7 +196,7 @@ console.log("Hello")
         }
         console.log("Hello 2")
 
-        const res = await fetch('http://localhost:8080/api/schedule/create', {
+        const res = await fetch(`${API}/schedule/create`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
