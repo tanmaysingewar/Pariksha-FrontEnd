@@ -49,7 +49,7 @@ const CreateFaculty = () => {
         
         <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Name" onChange={(e) => setname(e.target.value)}/>
+            <Form.Control type="text" placeholder="Enter Name" onChange={(e) => setname(e.target.value)}/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -60,12 +60,12 @@ const CreateFaculty = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Contact No.</Form.Label>
-            <Form.Control type="text" placeholder="Name" onChange={(e) => setcontact_no(e.target.value)}/>
+            <Form.Control type="text" placeholder="Enter Contact No" onChange={(e) => setcontact_no(e.target.value)}/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password"  onChange={(e) => setPassword(e.target.value)}/>
+            <Form.Control type="password" placeholder="Enter Password"  onChange={(e) => setPassword(e.target.value)}/>
         </Form.Group>
         <Form.Text className="text-danger">
             {error}
