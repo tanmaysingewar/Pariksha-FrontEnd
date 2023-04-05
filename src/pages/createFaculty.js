@@ -19,7 +19,7 @@ const CreateFaculty = () => {
     const [error, setError] = useState('');
     
     const handleSubmit = async () => {
-        const res = await fetch(`${API}/api/faculty/create/account`, {
+        const res = await fetch(`${API}/faculty/create/account`, {
         body: JSON.stringify({
             email,
             name,
