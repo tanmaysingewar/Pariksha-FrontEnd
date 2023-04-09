@@ -64,14 +64,14 @@ export default function Home() {
             <Card className="slide-in-bottom-subtitle" style={{textAlign : "center",justifyContent : "center", padding : "40px", alignItems : "center", width : "600px", margin : "auto", marginTop : "60px"}}>
               
               <p className="leading-normal text-base md:text-2xl mb-2 text-center md:text-left slide-in-bottom-subtitle" style={{textAlign :"right",fontSize : "18px"}}>
-                <b>Team Members :</b> <br/>
+                <b>Developed by :</b> <br/>
                 Tanishka Badnaware (2007006)  <br/>
                 Vaishnavi Dhore (2007019) <br/>
                 Kanishka katekhaye (2007031) <br/>
                 Tanishka Yewale (2007067) <br/>
               </p>
               <p className="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle" style={{textAlign :"right",fontSize : "18px"}}>
-              <b>Guide Name : </b>
+              <b>Guide : </b>
                 Dr. A. R. Mahajan <br/>
               <b>Co-Guide : </b>
                 Priti Saktel
