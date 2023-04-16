@@ -45,7 +45,9 @@ const viewSubject = () => {
         <h1 style={{textAlign : "center", marginTop : "40px"}}>
          <Badge bg="secondary">View Subjects</Badge>
         </h1>
-        <p style={{textAlign : "center", color : "#fff", marginTop : "10px"}}> <b>This is list of Subjects</b></p>
+        <p style={{textAlign : "center", marginTop : "10px", color : "#fff", cursor : "pointer" }} onClick={() => Router.push(`/admin`)  }> {"<- Back to Dashboard"}</p>
+
+        <p style={{textAlign : "center", color : "#fff", marginTop : "40px"}}> <b>This is list of Subjects</b></p>
         <Table striped bordered hover style={{width : "80%", margin : "auto", marginTop : "20px", marginBottom : "60px"}}>
       <thead>
         <tr>

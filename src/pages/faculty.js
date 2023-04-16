@@ -39,10 +39,15 @@ const Faculty = () => {
     return (
         <>
         <div style={{overflowY : "scroll", height : "100vh"}} >
+        {/* <h1 style={{textAlign : "left", marginTop : "40px"}}>
+        <Badge bg="secondary">View Faculty</Badge>
+        </h1> */}
         <h1 style={{textAlign : "center", marginTop : "40px"}}>
+        
         <Badge bg="secondary">View Faculty</Badge>
         </h1>
-        <Button variant="success" style={{margin : "auto", display : "block", marginBottom : "20px",marginTop : "60px"}} onClick={() => Router.push('/addFaculty')}>Add Faculty</Button>
+        <p style={{textAlign : "center", marginTop : "10px", color : "#fff", cursor : "pointer" }} onClick={() => Router.push(`/admin`)  }> {"<- Back to Dashboard"}</p>
+        <Button variant="success" style={{margin : "auto", display : "block", marginBottom : "20px",marginTop : "40px"}} onClick={() => Router.push('/addFaculty')}>Add Faculty</Button>
         <p style={{textAlign : "center", color : "#fff"}}> <b>This is list of all invigilators</b></p>
         <Table striped bordered hover style={{width : "80%", margin : "auto", marginTop : "20px", marginBottom : "60px"}} className="table-fixed">
       <thead>

@@ -1,3 +1,21 @@
+//                                                  || जय श्री राम ||
+//                                            विजेतव्या लङ्का चरणतरणीयो जलनिधिः
+//                                            विपक्षः पौलस्त्यो रणभुवि सहायाश्च कपयः।
+//                                              तथाप्येको रामः सकलमवधीद्राक्षसकुलं
+//                                             क्रियासिद्धिः सत्त्वे भवति महतां नोपकरणे॥
+
+//                                    vijetavyā laṅkā caraṇataraṇīyo jalanidhiḥ
+//                                  vipakṣaḥ paulastyo raṇabhuvi sahāyāśca kapayaḥ।
+//                                    tathāpyeko rāmaḥ sakalamavadhīdrākṣasakulaṃ
+//                                   kriyāsiddhiḥ sattve bhavati mahatāṃ nopakaraṇe॥
+
+//                               For winning over Laṅkā, Shree Ram had to walk across the sea. 
+//                  Ravana was powerful; and Shree Ram's army was of Vanaras (all odds were against Shree Ram). 
+//                                       Inspite of that, Ram killed all the demons. 
+//                                Success of a person depends solely on their own capacities.
+
+//                                Source – Subhāṣitaratnabhāṇḍāgāram, Sajjanapraśaṃsā 250
+
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";

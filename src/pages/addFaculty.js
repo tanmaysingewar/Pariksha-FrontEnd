@@ -2,6 +2,7 @@ import React, { useEffect,useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import Table from 'react-bootstrap/Table';
+import Router from 'next/router'
 import { API } from '../../backend';
 const AddFaculty = () => {
   const [data, setData] = useState([])
@@ -31,7 +32,9 @@ const AddFaculty = () => {
         <h1 style={{textAlign : "center", marginTop : "40px"}}>
         <Badge bg="secondary">Add Faculty</Badge>
         </h1>
-        <p style={{textAlign : "center",color : "#fff", marginTop : "10px"}}> <b>This is list of all Faculty</b></p>
+        <p style={{textAlign : "center", marginTop : "10px", color : "#fff", cursor : "pointer" }} onClick={() => Router.push(`/admin`)  }> {"<- Back to Dashboard"}</p>
+
+        <p style={{textAlign : "center",color : "#fff", marginTop : "40px"}}> <b>This is list of all Faculty</b></p>
         <Table striped bordered hover style={{width : "80%", margin : "auto", marginTop : "20px", marginBottom : "60px"}}>
       <thead>
         <tr>
